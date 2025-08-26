@@ -1,0 +1,21 @@
+# .NET build artifacts
+bin/
+obj/
+
+# Visual Studio / JetBrains Rider
+.vs/
+.idea/
+
+# User-specific
+*.user
+*.suo
+
+# macOS
+.DS_Store
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Rider-specific
+*.DotSettings.user
