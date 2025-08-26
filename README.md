@@ -21,26 +21,26 @@ It uses clean layering with **Repositories**, **Services**, and **DTOs**, and fo
 
 ## 🗂 Project structure
 
-OAGFlightWebApp/
-├─ Controllers/
-│  └─ FlightController.cs
-├─ DTOs/
-│  ├─ FlightDto.cs
-│  ├─ JourneyDto.cs
-│  ├─ PriceResultDto.cs
-│  └─ RoundtripDto.cs
-├─ Models/
-│  ├─ Availability.cs
-│  ├─ Flight.cs
-│  └─ Journey.cs
-├─ Repositories/
-│  ├─ IFlightRepository.cs
-│  └─ FlightRepository.cs
-├─ Services/
-│  ├─ IFlightAnalysisService.cs
-│  └─ FlightAnalysisService.cs
-├─ appsettings.json
-├─ Program.cs
+OAGFlightWebApp/  
+├─ Controllers/  
+│  └─ FlightController.cs  
+├─ DTOs/  
+│  ├─ FlightDto.cs  
+│  ├─ JourneyDto.cs  
+│  ├─ PriceResultDto.cs  
+│  └─ RoundtripDto.cs  
+├─ Models/  
+│  ├─ Availability.cs  
+│  ├─ Flight.cs  
+│  └─ Journey.cs  
+├─ Repositories/  
+│  ├─ IFlightRepository.cs  
+│  └─ FlightRepository.cs  
+├─ Services/  
+│  ├─ IFlightAnalysisService.cs  
+│  └─ FlightAnalysisService.cs  
+├─ appsettings.json  
+├─ Program.cs  
 └─ OAGFlightWebApp.csproj
 
 > Note: Models represent parsed data; DTOs shape the response objects for API output. All business logic lives in `FlightAnalysisService`.
@@ -61,51 +61,57 @@ From the project root:
 
 ```bash
 dotnet run
+```
 
 Then navigate to:
 
+```
 http://localhost:5299/swagger
+```
 
 You’ll see a Swagger UI listing all endpoints.
 
-⸻
+---
 
-🔁 Endpoints
+## 🔁 Endpoints
 
-Route	Description
-GET /api/flights/roundtrips	All valid roundtrip combinations
-GET /api/flights/cheapest	Cheapest roundtrip per unique route
-GET /api/flights/duplicates	Same inbound but different prices
-GET /api/flights/grouped-by-price	Total prices grouped by roundtrip route
+| Route                                 | Description                              |
+|--------------------------------------|------------------------------------------|
+| GET `/api/flights/roundtrips`        | All valid roundtrip combinations         |
+| GET `/api/flights/cheapest`          | Cheapest roundtrip per unique route      |
+| GET `/api/flights/duplicates`        | Same inbound but different prices        |
+| GET `/api/flights/grouped-by-price`  | Total prices grouped by roundtrip route  |
 
 Use curl or Postman:
 
+```bash
 curl http://localhost:5299/api/flights/roundtrips
 curl http://localhost:5299/api/flights/cheapest
 curl http://localhost:5299/api/flights/duplicates
 curl http://localhost:5299/api/flights/grouped-by-price
+```
 
+---
 
-⸻
-
-🧪 Tests
+## 🧪 Tests
 
 ⚠️ No unit tests yet, but structure supports adding them.
 
 To add:
-	•	Create OAGFlightWebApp.Tests/
-	•	Use xUnit + Moq for mocking IFlightRepository
-	•	Add integration tests using Microsoft.AspNetCore.Mvc.Testing
+- Create `OAGFlightWebApp.Tests/`
+- Use `xUnit` + `Moq` for mocking `IFlightRepository`
+- Add integration tests using `Microsoft.AspNetCore.Mvc.Testing`
 
-⸻
+---
 
-💡 Troubleshooting
-	•	No data? Ensure you’re online — the app pulls directly from the JSON endpoint.
-	•	Swagger not showing? Rebuild and relaunch using dotnet run.
-	•	Want to change airports or dates? Modify the URL in FlightRepository.cs.
+## 💡 Troubleshooting
 
-⸻
+- No data? Ensure you’re online — the app pulls directly from the JSON endpoint.
+- Swagger not showing? Rebuild and relaunch using `dotnet run`.
+- Want to change airports or dates? Modify the URL in `FlightRepository.cs`.
 
-📄 License
+---
+
+## 📄 License
 
 For assessment/demo purposes.
